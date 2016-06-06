@@ -1,5 +1,5 @@
 {
-    "name": "trinity/trinity-bunny-bundle",
+    "name": "trinity/bunny-bundle",
     "description": "Symfony bundle that makes using RabbitMQ easy. Without meta classes.",
     "minimum-stability": "stable",
     "license": "MIT",
