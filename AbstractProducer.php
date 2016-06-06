@@ -25,6 +25,17 @@ class AbstractProducer
     /** @var BunnyManager */
     protected $manager;
 
+    /**
+     * AbstractProducer constructor.
+     *
+     * @param              $exchange
+     * @param              $routingKey
+     * @param              $mandatory
+     * @param              $immediate
+     * @param              $beforeMethod
+     * @param              $contentType
+     * @param BunnyManager $manager
+     */
     public function __construct($exchange, $routingKey, $mandatory, $immediate, $beforeMethod, $contentType, BunnyManager $manager)
     {
         $this->exchange = $exchange;
