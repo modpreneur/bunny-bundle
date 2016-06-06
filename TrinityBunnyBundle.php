@@ -3,7 +3,6 @@ namespace Trinity\Bundle\BunnyBundle;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Trinity\Bundle\BunnyBundle\DependencyInjection\Compiler\BunnyCompilerPass;
-use Trinity\Bundle\BunnyBundle\DependencyInjection\SkrzBunnyExtension;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
