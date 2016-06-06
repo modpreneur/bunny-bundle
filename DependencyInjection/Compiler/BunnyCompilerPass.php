@@ -1,11 +1,15 @@
 <?php
 namespace Trinity\Bundle\BunnyBundle\DependencyInjection\Compiler;
 
+use Bunny\Channel;
+use Bunny\Client;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Trinity\Bundle\BunnyBundle\Annotation\Consumer;
 use Trinity\Bundle\BunnyBundle\Annotation\Producer;
 use Trinity\Bundle\BunnyBundle\BunnyException;
-use Trinity\Bundle\BunnyBundle\ContentTypes;
+use Trinity\Bundle\BunnyBundle\BunnyManager;
+use Trinity\Bundle\BunnyBundle\Command\ConsumerCommand;
+use Trinity\Bundle\BunnyBundle\Command\SetupCommand;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -140,7 +144,7 @@ class BunnyCompilerPass implements CompilerPassInterface
                     }
 
                     if (empty($annotation->contentType)) {
-                        $annotation->contentType = ContentTypes::APPLICATION_JSON;
+                        $annotation->contentType = 'application/json';
                     }
 
                     $producers[$producerName] = (array)$annotation;
@@ -158,7 +162,7 @@ class BunnyCompilerPass implements CompilerPassInterface
             }
         }
 
-        $container->setDefinition($this->clientServiceId, new Definition("Bunny\\Client", [[
+        $container->setDefinition($this->clientServiceId, new Definition(Client::class, [[
             "host" => $config["host"],
             "port" => $config["port"],
             "vhost" => $config["vhost"],
@@ -167,27 +171,27 @@ class BunnyCompilerPass implements CompilerPassInterface
             "heartbeat" => $config["heartbeat"],
         ]]));
 
-        $container->setDefinition($this->managerServiceId, new Definition("Trinity\\BunnyBundle\\BunnyManager", [
+        $container->setDefinition($this->managerServiceId, new Definition(BunnyManager::class, [
             new Reference("service_container"),
             $this->clientServiceId,
             $config,
         ]));
 
-        $channel = new Definition("Bunny\\Channel");
+        $channel = new Definition(Channel::class);
         $channel->setFactory([new Reference($this->managerServiceId), "getChannel"]);
         $container->setDefinition($this->channelServiceId, $channel);
 
-        $container->setDefinition($this->setupCommandServiceId, new Definition("Trinity\\BunnyBundle\\Command\\SetupCommand", [
+        $container->setDefinition($this->setupCommandServiceId, new Definition(SetupCommand::class, [
             new Reference($this->managerServiceId),
         ]));
 
-        $container->setDefinition($this->consumerCommandServiceId, new Definition("Trinity\\BunnyBundle\\Command\\ConsumerCommand", [
+        $container->setDefinition($this->consumerCommandServiceId, new Definition(ConsumerCommand::class, [
             new Reference("service_container"),
             new Reference($this->managerServiceId),
             $consumers,
         ]));
 
-        $container->setDefinition($this->producerCommandServiceId, new Definition("Trinity\\BunnyBundle\\Command\\ProducerCommand", [
+        $container->setDefinition($this->producerCommandServiceId, new Definition(ConsumerCommand::class, [
             new Reference("service_container"),
             new Reference($this->managerServiceId),
             $producers,
