@@ -1,10 +1,10 @@
 <?php
-namespace Trinity\BunnyBundle\Command;
+namespace Trinity\Bundle\BunnyBundle\Command;
 
-use Trinity\BunnyBundle\AbstractProducer;
-use Trinity\BunnyBundle\AbstractTransactionalProducer;
-use Trinity\BunnyBundle\Annotation\Producer;
-use Trinity\BunnyBundle\BunnyManager;
+use Trinity\Bundle\BunnyBundle\AbstractProducer;
+use Trinity\Bundle\BunnyBundle\AbstractTransactionalProducer;
+use Trinity\Bundle\BunnyBundle\Annotation\Producer;
+use Trinity\Bundle\BunnyBundle\BunnyManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

@@ -1,11 +1,11 @@
 <?php
-namespace Trinity\BunnyBundle\DependencyInjection\Compiler;
+namespace Trinity\Bundle\BunnyBundle\DependencyInjection\Compiler;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Trinity\BunnyBundle\Annotation\Consumer;
-use Trinity\BunnyBundle\Annotation\Producer;
-use Trinity\BunnyBundle\BunnyException;
-use Trinity\BunnyBundle\ContentTypes;
+use Trinity\Bundle\BunnyBundle\Annotation\Consumer;
+use Trinity\Bundle\BunnyBundle\Annotation\Producer;
+use Trinity\Bundle\BunnyBundle\BunnyException;
+use Trinity\Bundle\BunnyBundle\ContentTypes;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;

@@ -1,5 +1,5 @@
 <?php
-namespace Trinity\BunnyBundle;
+namespace Trinity\Bundle\BunnyBundle;
 
 use Bunny\Exception\BunnyException;
 

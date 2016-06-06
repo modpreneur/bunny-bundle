@@ -1,5 +1,5 @@
 <?php
-namespace Trinity\BunnyBundle\DependencyInjection;
+namespace Trinity\Bundle\BunnyBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;

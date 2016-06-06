@@ -1,5 +1,5 @@
 <?php
-namespace Trinity\BunnyBundle\Annotation;
+namespace Trinity\Bundle\BunnyBundle\Annotation;
 
 use Skrz\Bundle\AutowiringBundle\Annotation\Component;
 

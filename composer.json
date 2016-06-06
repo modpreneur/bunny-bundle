@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "\\Bundle\\BunnyBundle\\": ""
+            "Trinity\\Bundle\\BunnyBundle\\": ""
         }
     }
 }

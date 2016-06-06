@@ -1,7 +1,7 @@
 <?php
-namespace Trinity\BunnyBundle\Command;
+namespace Trinity\Bundle\BunnyBundle\Command;
 
-use Trinity\BunnyBundle\BunnyManager;
+use Trinity\Bundle\BunnyBundle\BunnyManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
