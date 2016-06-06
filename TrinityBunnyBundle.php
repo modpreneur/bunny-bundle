@@ -1,15 +1,15 @@
 <?php
-namespace Trinity\NotificationBundle;
+namespace Trinity\BunnyBundle;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Trinity\NotificationBundle\DependencyInjection\Compiler\BunnyCompilerPass;
-use Trinity\NotificationBundle\DependencyInjection\SkrzBunnyExtension;
+use Trinity\BunnyBundle\DependencyInjection\Compiler\BunnyCompilerPass;
+use Trinity\BunnyBundle\DependencyInjection\SkrzBunnyExtension;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Trinity\NotificationBundle\DependencyInjection\TrinityBunnyExtension;
+use Trinity\BunnyBundle\DependencyInjection\TrinityBunnyExtension;
 
 class TrinityBunnyBundle extends Bundle
 {

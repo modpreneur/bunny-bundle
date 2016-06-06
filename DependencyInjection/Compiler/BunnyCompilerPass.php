@@ -1,11 +1,11 @@
 <?php
-namespace Trinity\NotificationBundle\DependencyInjection\Compiler;
+namespace Trinity\BunnyBundle\DependencyInjection\Compiler;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Trinity\NotificationBundle\Annotation\Consumer;
-use Trinity\NotificationBundle\Annotation\Producer;
-use Trinity\NotificationBundle\BunnyException;
-use Trinity\NotificationBundle\ContentTypes;
+use Trinity\BunnyBundle\Annotation\Consumer;
+use Trinity\BunnyBundle\Annotation\Producer;
+use Trinity\BunnyBundle\BunnyException;
+use Trinity\BunnyBundle\ContentTypes;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -167,7 +167,7 @@ class BunnyCompilerPass implements CompilerPassInterface
             "heartbeat" => $config["heartbeat"],
         ]]));
 
-        $container->setDefinition($this->managerServiceId, new Definition("Skrz\\Bundle\\BunnyBundle\\BunnyManager", [
+        $container->setDefinition($this->managerServiceId, new Definition("Trinity\\BunnyBundle\\BunnyManager", [
             new Reference("service_container"),
             $this->clientServiceId,
             $config,
@@ -177,17 +177,17 @@ class BunnyCompilerPass implements CompilerPassInterface
         $channel->setFactory([new Reference($this->managerServiceId), "getChannel"]);
         $container->setDefinition($this->channelServiceId, $channel);
 
-        $container->setDefinition($this->setupCommandServiceId, new Definition("Skrz\\Bundle\\BunnyBundle\\Command\\SetupCommand", [
+        $container->setDefinition($this->setupCommandServiceId, new Definition("Trinity\\BunnyBundle\\Command\\SetupCommand", [
             new Reference($this->managerServiceId),
         ]));
 
-        $container->setDefinition($this->consumerCommandServiceId, new Definition("Skrz\\Bundle\\BunnyBundle\\Command\\ConsumerCommand", [
+        $container->setDefinition($this->consumerCommandServiceId, new Definition("Trinity\\BunnyBundle\\Command\\ConsumerCommand", [
             new Reference("service_container"),
             new Reference($this->managerServiceId),
             $consumers,
         ]));
 
-        $container->setDefinition($this->producerCommandServiceId, new Definition("Skrz\\Bundle\\BunnyBundle\\Command\\ProducerCommand", [
+        $container->setDefinition($this->producerCommandServiceId, new Definition("Trinity\\BunnyBundle\\Command\\ProducerCommand", [
             new Reference("service_container"),
             new Reference($this->managerServiceId),
             $producers,

@@ -1,5 +1,5 @@
 <?php
-namespace Trinity\NotificationBundle;
+namespace Trinity\BunnyBundle;
 
 class AbstractProducer
 {

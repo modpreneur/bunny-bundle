@@ -1,5 +1,5 @@
 <?php
-namespace Trinity\NotificationBundle\Command;
+namespace Trinity\BunnyBundle\Command;
 
 use Bunny\Channel;
 use Bunny\Client;
@@ -7,9 +7,9 @@ use Bunny\Message;
 use Bunny\Protocol\MethodBasicQosOkFrame;
 use Bunny\Protocol\MethodQueueBindOkFrame;
 use Bunny\Protocol\MethodQueueDeclareOkFrame;
-use Trinity\NotificationBundle\Annotation\Consumer;
-use Trinity\NotificationBundle\BunnyException;
-use Trinity\NotificationBundle\BunnyManager;
+use Trinity\BunnyBundle\Annotation\Consumer;
+use Trinity\BunnyBundle\BunnyException;
+use Trinity\BunnyBundle\BunnyManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
