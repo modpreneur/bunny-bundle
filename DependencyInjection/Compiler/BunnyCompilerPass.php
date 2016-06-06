@@ -9,6 +9,7 @@ use Trinity\Bundle\BunnyBundle\Annotation\Producer;
 use Trinity\Bundle\BunnyBundle\BunnyException;
 use Trinity\Bundle\BunnyBundle\BunnyManager;
 use Trinity\Bundle\BunnyBundle\Command\ConsumerCommand;
+use Trinity\Bundle\BunnyBundle\Command\ProducerCommand;
 use Trinity\Bundle\BunnyBundle\Command\SetupCommand;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -191,7 +192,7 @@ class BunnyCompilerPass implements CompilerPassInterface
             $consumers,
         ]));
 
-        $container->setDefinition($this->producerCommandServiceId, new Definition(ConsumerCommand::class, [
+        $container->setDefinition($this->producerCommandServiceId, new Definition(ProducerCommand::class, [
             new Reference("service_container"),
             new Reference($this->managerServiceId),
             $producers,
