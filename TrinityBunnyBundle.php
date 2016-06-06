@@ -9,6 +9,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Trinity\NotificationBundle\DependencyInjection\TrinityBunnyExtension;
 
 class TrinityBunnyBundle extends Bundle
 {
@@ -16,7 +17,7 @@ class TrinityBunnyBundle extends Bundle
     public function getContainerExtension()
     {
         if ($this->extension === null) {
-            $this->extension = new SkrzBunnyExtension();
+            $this->extension = new TrinityBunnyExtension();
         }
 
         return $this->extension;

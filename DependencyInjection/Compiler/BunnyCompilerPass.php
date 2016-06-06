@@ -62,7 +62,7 @@ class BunnyCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         if (!$container->hasParameter($this->configKey)) {
-            throw new \InvalidArgumentException("Container doesn't have parameter '{$this->configKey}', SkrzBunnyExtension probably haven't processed config.");
+            throw new \InvalidArgumentException("Container doesn't have parameter '{$this->configKey}', TrinityBunnyExtension probably haven't processed config.");
         }
 
         $config = $container->getParameter($this->configKey);
