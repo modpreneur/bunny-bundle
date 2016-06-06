@@ -4,58 +4,58 @@ namespace Trinity\NotificationBundle;
 class AbstractProducer
 {
 
-	/** @var string */
-	private $exchange;
+    /** @var string */
+    private $exchange;
 
-	/** @var string */
-	private $routingKey;
+    /** @var string */
+    private $routingKey;
 
-	/** @var boolean */
-	private $mandatory;
+    /** @var boolean */
+    private $mandatory;
 
-	/** @var boolean */
-	private $immediate;
-	
-	/** @var string */
-	private $beforeMethod;
+    /** @var boolean */
+    private $immediate;
+    
+    /** @var string */
+    private $beforeMethod;
 
-	/** @var string */
-	private $contentType;
+    /** @var string */
+    private $contentType;
 
-	/** @var BunnyManager */
-	protected $manager;
+    /** @var BunnyManager */
+    protected $manager;
 
-	public function __construct($exchange, $routingKey, $mandatory, $immediate, $beforeMethod, $contentType, BunnyManager $manager)
-	{
-		$this->exchange = $exchange;
-		$this->routingKey = $routingKey;
-		$this->mandatory = $mandatory;
-		$this->immediate = $immediate;
-		$this->beforeMethod = $beforeMethod;
-		$this->contentType = $contentType;
-		$this->manager = $manager;
-	}
+    public function __construct($exchange, $routingKey, $mandatory, $immediate, $beforeMethod, $contentType, BunnyManager $manager)
+    {
+        $this->exchange = $exchange;
+        $this->routingKey = $routingKey;
+        $this->mandatory = $mandatory;
+        $this->immediate = $immediate;
+        $this->beforeMethod = $beforeMethod;
+        $this->contentType = $contentType;
+        $this->manager = $manager;
+    }
 
-	public function publish($message, $routingKey = null, array $headers = [])
-	{
-		if ($this->beforeMethod) {
-			$this->{$this->beforeMethod}($message, $this->manager->getChannel());
-		}
+    public function publish($message, $routingKey = null, array $headers = [])
+    {
+        if ($this->beforeMethod) {
+            $this->{$this->beforeMethod}($message, $this->manager->getChannel());
+        }
 
-		if ($routingKey === null) {
-			$routingKey = $this->routingKey;
-		}
+        if ($routingKey === null) {
+            $routingKey = $this->routingKey;
+        }
 
-		$headers["content-type"] = $this->contentType;
+        $headers["content-type"] = $this->contentType;
 
-		$this->manager->getChannel()->publish(
-			$message,
-			$headers,
-			$this->exchange,
-			$routingKey,
-			$this->mandatory,
-			$this->immediate
-		);
-	}
+        $this->manager->getChannel()->publish(
+            $message,
+            $headers,
+            $this->exchange,
+            $routingKey,
+            $this->mandatory,
+            $this->immediate
+        );
+    }
 
 }
