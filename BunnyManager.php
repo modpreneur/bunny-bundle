@@ -1,5 +1,5 @@
 <?php
-namespace Skrz\Bundle\BunnyBundle;
+namespace Trinity\NotificationBundle;
 
 use Bunny\Channel;
 use Bunny\Client;

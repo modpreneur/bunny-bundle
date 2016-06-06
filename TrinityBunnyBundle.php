@@ -1,16 +1,16 @@
 <?php
-namespace Skrz\Bundle\BunnyBundle;
+namespace Trinity\NotificationBundle;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Skrz\Bundle\BunnyBundle\DependencyInjection\Compiler\BunnyCompilerPass;
-use Skrz\Bundle\BunnyBundle\DependencyInjection\SkrzBunnyExtension;
+use Trinity\NotificationBundle\DependencyInjection\Compiler\BunnyCompilerPass;
+use Trinity\NotificationBundle\DependencyInjection\SkrzBunnyExtension;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class SkrzBunnyBundle extends Bundle
+class TrinityBunnyBundle extends Bundle
 {
 
 	public function getContainerExtension()

@@ -1,5 +1,5 @@
 <?php
-namespace Skrz\Bundle\BunnyBundle\Annotation;
+namespace Trinity\NotificationBundle\Annotation;
 
 use Skrz\Bundle\AutowiringBundle\Annotation\Component;
 
@@ -67,11 +67,6 @@ final class Consumer extends Component
 	 * @var int
 	 */
 	public $prefetchSize = null;
-
-	/**
-	 * @var string
-	 */
-	public $meta = null;
 
 	/**
 	 * @var string

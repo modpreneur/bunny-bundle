@@ -1,6 +1,0 @@
-bunny:
-  exchanges:
-    test_direct_exchange:
-      type: direct
-    test_topic_exchange:
-      type: topic

@@ -1,7 +1,0 @@
-bunny:
-  queues:
-    test_queue:
-      durable: true
-      bindings:
-        - exchange: amq.direct
-          routing_key: xxx

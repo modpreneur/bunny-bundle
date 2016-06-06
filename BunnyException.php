@@ -1,5 +1,5 @@
 <?php
-namespace Skrz\Bundle\BunnyBundle;
+namespace Trinity\NotificationBundle;
 
 class BunnyException extends \Exception
 {

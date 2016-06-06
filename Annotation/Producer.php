@@ -1,5 +1,5 @@
 <?php
-namespace Skrz\Bundle\BunnyBundle\Annotation;
+namespace Trinity\NotificationBundle\Annotation;
 
 use Skrz\Bundle\AutowiringBundle\Annotation\Component;
 
@@ -32,11 +32,6 @@ final class Producer extends Component
 	 * @var boolean
 	 */
 	public $immediate = false;
-
-	/**
-	 * @var string
-	 */
-	public $meta = null;
 
 	/**
 	 * @var string

@@ -1,10 +1,10 @@
 <?php
-namespace Skrz\Bundle\BunnyBundle\Command;
+namespace Trinity\NotificationBundle\Command;
 
-use Skrz\Bundle\BunnyBundle\AbstractProducer;
-use Skrz\Bundle\BunnyBundle\AbstractTransactionalProducer;
-use Skrz\Bundle\BunnyBundle\Annotation\Producer;
-use Skrz\Bundle\BunnyBundle\BunnyManager;
+use Trinity\NotificationBundle\AbstractProducer;
+use Trinity\NotificationBundle\AbstractTransactionalProducer;
+use Trinity\NotificationBundle\Annotation\Producer;
+use Trinity\NotificationBundle\BunnyManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

@@ -1,34 +1,13 @@
 {
-    "name": "skrz/bunny-bundle",
-    "description": "Symfony bundle that makes using RabbitMQ easy.",
-    "keywords": [
-        "rabbitmq",
-        "rabbit",
-        "bunny",
-        "amqp",
-        "messaging",
-        "message",
-        "queue",
-        "queueing",
-        "exchange",
-        "symfony",
-        "symfonyfw",
-        "bundle",
-        "symfony bundle"
-    ],
+    "name": "trinity/trinity-bunny-bundle",
+    "description": "Symfony bundle that makes using RabbitMQ easy. Without meta classes.",
     "minimum-stability": "stable",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Jakub Kulhan",
-            "email": "jakub.kulhan@gmail.com"
-        }
-    ],
     "require": {
         "php": ">=5.4",
         "bunny/bunny": "~0.2.2",
         "skrz/autowiring-bundle": "~1.1",
-        "skrz/meta": ">=3.0, <4.0"
+        "symfony/console": "3.1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.6",
@@ -37,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Skrz\\Bundle\\BunnyBundle\\": ""
+            "\\Bundle\\BunnyBundle\\": ""
         }
     }
 }

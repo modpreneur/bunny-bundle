@@ -1,11 +1,11 @@
 <?php
-namespace Skrz\Bundle\BunnyBundle\DependencyInjection\Compiler;
+namespace Trinity\NotificationBundle\DependencyInjection\Compiler;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Skrz\Bundle\BunnyBundle\Annotation\Consumer;
-use Skrz\Bundle\BunnyBundle\Annotation\Producer;
-use Skrz\Bundle\BunnyBundle\BunnyException;
-use Skrz\Bundle\BunnyBundle\ContentTypes;
+use Trinity\NotificationBundle\Annotation\Consumer;
+use Trinity\NotificationBundle\Annotation\Producer;
+use Trinity\NotificationBundle\BunnyException;
+use Trinity\NotificationBundle\ContentTypes;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -150,7 +150,6 @@ class BunnyCompilerPass implements CompilerPassInterface
 						$annotation->routingKey,
 						$annotation->mandatory,
 						$annotation->immediate,
-						$annotation->meta,
 						$annotation->beforeMethod,
 						$annotation->contentType,
 						new Reference($this->managerServiceId),
