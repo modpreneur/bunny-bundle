@@ -3,7 +3,6 @@ namespace Trinity\NotificationBundle;
 
 class AbstractProducer
 {
-
     /** @var string */
     private $exchange;
 
