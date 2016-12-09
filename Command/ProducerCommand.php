@@ -69,7 +69,7 @@ class ProducerCommand extends Command
             $handle = fopen($input->getOption("listFile"), "r");
             if ($handle) {
                 while (($line = fgets($handle)) !== false) {
-                    $producer->publish(sprintf($message, trim($line)), $routingKey);
+                    $producer->publish(sprintf($message, trim($line)), $routingKey, ['delivery-mode' => 2]);
                 }
 
                 fclose($handle);
@@ -78,7 +78,7 @@ class ProducerCommand extends Command
             }
         } else {
             for ($i = 0, $count = $input->getOption("count"); $i < $count; ++$i) {
-                $producer->publish($message, $routingKey);
+                $producer->publish($message, $routingKey, ['delivery-mode' => 2]);
             }
         }
     }
