@@ -58,14 +58,25 @@ class AbstractProducer
 
         $headers["content-type"] = $this->contentType;
 
-        $this->manager->getChannel()->publish(
-            $message,
-            $headers,
-            $this->exchange,
-            $routingKey,
-            $this->mandatory,
-            $this->immediate
-        );
-    }
+        if (!$this->manager->getClient()->isConnected()) {
+            try {
+                $this->manager->getClient()->connect();
+            } catch (\Exception $exception) {
+                throw new BunnyException($exception);
+            }
+        }
 
+        try {
+            $this->manager->getChannel()->publish(
+                $message,
+                $headers,
+                $this->exchange,
+                $routingKey,
+                $this->mandatory,
+                $this->immediate
+            );
+        } catch (\Exception $exception) {
+            throw new BunnyException($exception);
+        }
+    }
 }
